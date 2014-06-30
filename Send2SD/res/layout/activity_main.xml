@@ -26,6 +26,36 @@
         fbutton:shadowEnabled="true"
         fbutton:cornerRadius="15dp"
         fbutton:shadowHeight="6dp"
-        android:text="Twitter" />
+        android:text="@string/btn_save_file_to_sd" />
+   
+   <info.hoang8f.widget.FButton
+        android:id="@+id/f_twitter_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:minHeight="80dp"
+        android:minWidth="250dp"
+        android:layout_margin="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/twitter"
+        android:drawablePadding="0dp"
+        android:textColor="@android:color/white"
+        fbutton:shadowEnabled="true"
+        fbutton:cornerRadius="15dp"
+        fbutton:shadowHeight="6dp"
+        android:layout_below="@+id/f_twitter_button"
+        android:text="@string/btn_open_sd_folder" />
+
+   <TextView
+       android:id="@+id/textView1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/f_twitter_button2"
+       android:layout_below="@+id/f_twitter_button2"
+       android:layout_marginTop="36dp"
+       android:text="@string/save_path"
+       android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
