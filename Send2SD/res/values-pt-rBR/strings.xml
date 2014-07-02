@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">*Salvar no cartão SD</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="btn_save_file_to_sd">Nenhum arquivo precisam ser armazenados</string>
+    <string name="btn_save_it">Novos arquivos podem ser salvo</string>
+    <string name="btn_open_sd_folder">abrir a pasta do cartão SD</string>
+	<string name="save_path">Save Folder Path:\n%s</string>
+	
+	 <string name= "save_suc">Álbuns de fotos e foram salvas com sucesso para o cartão SD!</string>
+	 <string name= "save_file_suc">Arquivo foi salvo com sucesso para o sucesso do cartão SD!</string>
+    <string name="btn_text_openfb">Open Facebook App</string>
+	<string name="btn_text_save">Click me to save the Photo</string>
+	<string name="open_photo">Click me to open donwload folder</string>
+	<string name="btn_text_confirm">Click button, if you want to donwload it</string>
+	<string name="open_fb">Open FB App start to download Photo~</string>
+	<string name="back">Back to Facebook</string>
+	<string name="menu_item1">More useful app</string>
+    <string name="menu_item2">Rating me</string>
+    <string name="menu_item3">Facebook Privacy lock</string>
+	<string name="tv_text_desc">Fácil de usar: \n1 Abrir FB ou outro aplicativo que você deseja salvar o arquivo, selecione a foto ou arquivo \n2 imprensa no botão Compartilhar e selecione \"* Salvar no cartão SD \" \n3 imprensa Save botões, fotos ou arquivos serão salvos no cartão SD na pasta \"SaveToSD \" </string>
+	
+</resources>

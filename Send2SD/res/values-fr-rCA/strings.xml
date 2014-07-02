@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">*Enregistrer sur la carte SD</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="btn_save_file_to_sd">Aucun doivent être stockés</string>
+    <string name="btn_save_it">Nouveaux fichiers peuvent être sauvegardés</string>
+    <string name="btn_open_sd_folder">ouvrir le dossier de la carte SD</string>
+	<string name="save_path">Save Folder Path:\n%s</string>
+	
+	 <string name= "save_suc">Les albums photo et ont été correctement enregistré sur la carte SD!</string>
+	 <string name= "save_file_suc">Le fichier a été enregistré avec succès à la réussite de la carte SD! </string>
+    <string name="btn_text_openfb">Open Facebook App</string>
+	<string name="btn_text_save">Click me to save the Photo</string>
+	<string name="open_photo">Click me to open donwload folder</string>
+	<string name="btn_text_confirm">Click button, if you want to donwload it</string>
+	<string name="open_fb">Open FB App start to download Photo~</string>
+	<string name="back">Back to Facebook</string>
+	<string name="menu_item1">More useful app</string>
+    <string name="menu_item2">Rating me</string>
+    <string name="menu_item3">Facebook Privacy lock</string>
+	<string name="tv_text_desc">Facile à utiliser: \n1 Ouvrir FB ou autre application que vous souhaitez enregistrer le fichier, sélectionnez la photo ou le fichier \n2 presse le bouton Partager et sélectionnez \"* Enregistrer sur la carte SD \" \n3 Sauvegarder presse les boutons, les photos ou les fichiers seront enregistrés sur la carte SD sous dossier \"SaveToSD \" </string>
+	
+</resources>
