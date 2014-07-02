@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">*SaveToSD</string>
+    <string name="app_name">*另存到SD卡</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="btn_save_file_to_sd">No file need to save</string>
-    <string name="btn_save_it">Save File to SDCard!!</string>
-    <string name="btn_open_sd_folder">Open SDCard folder</string>
+    <string name="btn_save_file_to_sd">沒有檔案需要儲存</string>
+    <string name="btn_save_it">有新檔案可以儲存</string>
+    <string name="btn_open_sd_folder">打開SD卡的資料夾</string>
 	<string name="save_path">Save Folder Path:\n%s</string>
 	
-	 <string name= "save_suc">Save photo in album and SDCard successful !!</string>
-	 <string name= "save_file_suc">Save file in SDCard successful !!</string>
+	 <string name= "save_suc">照片已成功儲存到相簿與SD卡 !!</string>
+	 <string name= "save_file_suc">檔案已成功儲存到SD卡 成功!!</string>
     <string name="btn_text_openfb">Open Facebook App</string>
 	<string name="btn_text_save">Click me to save the Photo</string>
 	<string name="open_photo">Click me to open donwload folder</string>
@@ -20,6 +20,6 @@
 	<string name="menu_item1">More useful app</string>
     <string name="menu_item2">Rating me</string>
     <string name="menu_item3">Facebook Privacy lock</string>
-	<string name="tv_text_desc">Easy to use:\n1.Open FB App or other App, select the photo or any file\n2.Tap share button and select \"*SaveToSD\"\n3.Click save button, the photo or file will save in SD folder \"SaveToSD\"</string>
+	<string name="tv_text_desc">簡單好用:\n1.打開FB或是其他您想要另存檔案的APP, 選擇該照片或是檔案\n2.按下分享按鈕然後選擇 \"*另存到SD卡\"\n3.按下儲存按鈕, 照片或檔案就會存到SD卡下的 \"SaveToSD\"資料夾</string>
 	
 </resources>

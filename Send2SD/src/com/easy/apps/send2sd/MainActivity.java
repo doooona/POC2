@@ -34,8 +34,10 @@ public class MainActivity extends Activity implements View.OnClickListener{
 	private FButton twitterBtn;
 	private FButton openBtn;
 	private Uri photoURI;
+	private Intent latestIntent;
 	private StorageManager mStorageManager;
 	private Method mMethodGetPaths;
+	private static final String SAVE_FLODER_NAME = "SaveToSD";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +45,31 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		setContentView(R.layout.activity_main);
 		
 		//使用不同顏色來區分狀態
-		
 		twitterBtn = (FButton) findViewById(R.id.f_twitter_button);
-		twitterBtn.setButtonColor(this.getResources().getColor(R.color.color_sun_flower));
-		
+		twitterBtn.setOnClickListener(this);	
 		openBtn = (FButton) findViewById(R.id.f_twitter_button2);
-		openBtn.setButtonColor(this.getResources().getColor(R.color.color_sun_flower));
+		openBtn.setOnClickListener(this);
+		
+	}
+	
+	@Override
+	protected void onResume()
+	{
+	  super.onResume();
+	  
+	  if(this.getIntent() != null && this.getIntent().getAction() !=null && this.getIntent().getAction().equals("android.intent.action.SEND")){
+			twitterBtn.setButtonColor(this.getResources().getColor(R.color.color_sun_flower));
+			twitterBtn.setText(this.getString(R.string.btn_save_it));
+			Log.d("@@@", String.format("getIntent %s",this.getIntent().getAction()));
+		}else{
+			twitterBtn.setButtonColor(this.getResources().getColor(R.color.button_default_color));
+			twitterBtn.setText(this.getString(R.string.btn_save_file_to_sd));
+			Log.d("@@@", "getIntent null");
+		}
+		
+		this.latestIntent = this.getIntent();
+		
+		this.checkIntent(this.getIntent());
 	}
 
 	@Override
@@ -64,16 +85,34 @@ public class MainActivity extends Activity implements View.OnClickListener{
 		 switch (v.getId()) {
 		 	case R.id.f_twitter_button:
 		 		
+		 	this.handleIntent();
+		 		
 			 break;
+			 
+		 	case R.id.f_twitter_button2:
+		 	
+		 	break;
 		 }
 	}
 	
-	private void checkIntent(String action)
+	private void checkIntent(Intent intent)
 	{
-		if ("android.intent.action.SEND".equals(action))
-		{
+		if(intent==null || intent.getAction() == null){
 			
-		}else if ("android.intent.action.SEND_MULTIPLE".equals(action))
+			this.showToast(this.getString(R.string.btn_save_file_to_sd));
+			
+			return;
+		}
+		
+		if ("android.intent.action.SEND".equals(intent.getAction()))
+		{
+			Bundle bundle = intent.getExtras();
+			Uri data = (Uri)bundle.get(Intent.EXTRA_STREAM);
+			photoURI = data;
+			
+			Log.d("@@@", "hi2");
+			
+		}else if ("android.intent.action.SEND_MULTIPLE".equals(intent.getAction()))
 		{
 			
 		}
@@ -92,27 +131,26 @@ public class MainActivity extends Activity implements View.OnClickListener{
 						2 + photoURI.toString().lastIndexOf("/"),
 						photoURI.toString().length());
 				
-				int sysVersion = Integer.parseInt(VERSION.SDK);
-				
-				String sdPath;
-				
-				if(sysVersion > 11){
-					
-					String[] paths = this.getVolumePaths();
-					sdPath = paths[1];
-					
-				}else{
-					sdPath = Environment.getExternalStorageDirectory()
-							.getAbsolutePath();
-				}
+				String sdPath = getSavePath();
 				
 				Log.d("@@@", "sdPath:" + sdPath);
+				Log.d("@@@", "fileName:" + fileName);
+				
+				String parentPath = sdPath + File.separator
+						+ MainActivity.SAVE_FLODER_NAME;
+				
+				Log.d("@@@", "parentPath:" + parentPath);
+				
+				File sdParentFolder = new File(parentPath);
 				
 				String finalFilePath = sdPath + File.separator
-						+ "Download Facebook photos";
+						+ MainActivity.SAVE_FLODER_NAME + File.separator + "save2SD-images";
 				File sdFolder = new File(finalFilePath);
-				if (!sdFolder.exists())
-					sdFolder.mkdir();
+				if (!sdFolder.exists()){
+					if(sdFolder.mkdirs())
+						Log.d("@@@", "mkdir");
+					
+				}
 
 				copy(new File(photoURI.getPath()), new File(finalFilePath,
 						fileName));
@@ -123,11 +161,99 @@ public class MainActivity extends Activity implements View.OnClickListener{
 
 				Toast.makeText(this, this.getString(R.string.save_suc),
 						Toast.LENGTH_LONG).show();
+				
+				getIntent().removeExtra("key"); 
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else
+			Log.d("@@@", "hi...");
+	}
+	
+	private void saveFile()
+	{
+		if (photoURI != null) {
+			try {
+				String fileName = photoURI.toString().substring(
+						2 + photoURI.toString().lastIndexOf("/"),
+						photoURI.toString().length());
+				
+				String sdPath = getSavePath();
+				
+				Log.d("@@@", "sdPath:" + sdPath);
+				
+				String parentPath = sdPath + File.separator
+						+ MainActivity.SAVE_FLODER_NAME;
+				
+				File sdParentFolder = new File(parentPath);
+				
+				String finalFilePath = sdPath + File.separator
+						+ MainActivity.SAVE_FLODER_NAME + File.separator + "save2SD-files";
+				File sdFolder = new File(finalFilePath);
+				if (!sdFolder.exists()){
+					if(sdFolder.mkdirs())
+						Log.d("@@@", "mkdir");
+					
+				}
+
+				copy(new File(photoURI.getPath()), new File(finalFilePath,
+						fileName));
+
+				Toast.makeText(this, this.getString(R.string.save_file_suc),
+						Toast.LENGTH_LONG).show();
+				
+				getIntent().removeExtra("key"); 
 
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	private void handleIntent(){
+		
+		if(this.latestIntent != null && this.latestIntent.getAction() != null && this.latestIntent.getAction().equals("android.intent.action.SEND")){
+			
+			// Figure out what to do based on the intent type
+		    if (latestIntent.getType().indexOf("image/") != -1) {
+		        // Handle intents with image data ...
+		    	Log.d("@@@", "save image...");
+		    	this.saveImage();
+		    	
+		    } else if (latestIntent.getType().equals("text/plain")) {
+		        // Handle intents with text ...
+		    	this.saveFile();
+		    	Log.d("@@@", "save file...");
+		    }else{
+		    	this.saveFile();
+		    	Log.d("@@@", "save any file...");
+		    }
+		    	
+		}else
+			this.showToast(this.getString(R.string.btn_save_file_to_sd));
+		
+	}
+	
+	private String getSavePath(){
+		
+		int sysVersion = Integer.parseInt(VERSION.SDK);
+		
+		String sdPath;
+		
+		Log.d("@@@", String.format("verison: %d", sysVersion));
+		
+		if(sysVersion > 11 && sysVersion < 19){
+			
+			String[] paths = this.getVolumePaths();
+			sdPath = paths[1];
+			
+		}else{
+			sdPath = Environment.getExternalStorageDirectory()
+					.getAbsolutePath();
+		}
+		
+		return sdPath;
 	}
 	
 	private void copy(File inFile, File outFile){
