@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">*Facebook照片下載</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name= "save_suc">儲存照片到相片庫  成功!!</string>
+    <string name="btn_text_openfb">打開Facebook app</string>
+	<string name="btn_text_save">按我下載照片</string>
+	<string name="open_photo">Click me to open donwload folder</string>
+	<string name="btn_text_confirm">請點選按鈕,如果您確認下載此張照片的話</string>
+	<string name="open_fb">打開臉書app 開始下載照片吧~</string>
+	<string name="back">回到臉書</string>
+	 <string name="menu_item1">下載更多好用的程式</string>
+	  <string name="menu_item3">Facebook隱私鎖定</string>
+    <string name="menu_item2">協助評分</string>
+	<string name="tv_text_desc">使用方法:\n1.打開臉書,選擇想要下載的照片\n2.點選menu按鈕 然後選擇 \"*Facebook照片下載\"\n3.點選下載按鈕,照片就會自動存放在您的sdcard下叫做 \"Download Facebook photos\"的資料夾</string>
+</resources>

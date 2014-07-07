@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">*Facebook Photos Download</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name= "save_suc">Save photo in album successful !!</string>
+    <string name="btn_text_openfb">Open Facebook App</string>
+	<string name="btn_text_save">Click me to save the Photo</string>
+	<string name="open_photo">Click me to open donwload folder</string>
+	<string name="btn_text_confirm">Click button, if you want to donwload it</string>
+	<string name="open_fb">Open FB App start to download Photo~</string>
+	<string name="back">Back to Facebook</string>
+	<string name="menu_item1">More useful app</string>
+    <string name="menu_item2">Rating me</string>
+     <string name="menu_item3">Facebook Privacy lock</string>
+	<string name="tv_text_desc">Easy to use:\n1.Open FB App, select the photo\n2.Tap menu button and select \"*Facebook Photos Download\"\n3.Click save button, the photo will save in SD folder \"Download Facebook photos\"</string>
+</resources>
